@@ -4,7 +4,7 @@ import generateToken from '../utils/generateToken.js';
 
 export const Signup = async(req, res)=>{
   try {
-    const {fullName, username, password, confirmpassword, gender, age} = req.body;
+    const {fullName, username, password, confirmpassword, gender, } = req.body;
 
     if(password != confirmpassword){
       return res.status(400).json({error: "Password doesn't match"})
@@ -16,9 +16,7 @@ export const Signup = async(req, res)=>{
       return res.status(400).json({error: "Username already exist"})
     }
 
-    if(age <=13){
-      return res.status(400).json({error: "too young to use the service"})
-    }
+    
 
     const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`
     const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`
@@ -31,8 +29,7 @@ export const Signup = async(req, res)=>{
       username,
       password: hashedPass,
       gender,
-      profilePic: gender === "male" ? boyProfilePic : girlProfilePic,
-      age
+      profilePic: gender === "male" ? boyProfilePic : girlProfilePic
     })
 
     if(newUser){
