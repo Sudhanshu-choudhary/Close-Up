@@ -1,4 +1,4 @@
-import useGetUsers from "../hooks/useGetUsers.js";
+import useGetUsers from "@/hooks/useGetUsers";
 import Conversation from "./Conversation"
 
 const Conversations = () => {
