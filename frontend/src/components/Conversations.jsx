@@ -1,8 +1,8 @@
-import useGetusers from "../hooks/useGetUsers";
+import useGetUsers from "../hooks/useGetUsers";
 import Conversation from "./Conversation"
 
 const Conversations = () => {
-  const {loading, users} = useGetusers();
+  const {loading, users} = useGetUsers();
 
   return (
     <div className="flex flex-col overflow-auto py-2">
