@@ -4,16 +4,16 @@ import generateToken from '../utils/generateToken.js';
 
 export const Signup = async(req, res)=>{
   try {
-    const {fullName, username, password, confirmpassword, gender, } = req.body;
+    const {fullName, username, password, confirmPassword, gender } = req.body;
 
-    if(password != confirmpassword){
+    if(password != confirmPassword){
       return res.status(400).json({error: "Password doesn't match"})
     }
 
     const user = await User.findOne({username});
 
     if(user){
-      return res.status(400).json({error: "Username already exist"})
+      return res.status(400).json({error: "Username already exist and a fucking error"})
     }
 
     
@@ -48,7 +48,7 @@ export const Signup = async(req, res)=>{
     
   } 
   catch (error) {
-    res.status(500).json({error: "internal error, try again after sometime"})
+    res.status(500).json({error: "internal error, try again after sometime or maybe dont at all"})
   }
 }
 
