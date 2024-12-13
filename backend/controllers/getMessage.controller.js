@@ -10,9 +10,7 @@ const getMessage = async (req, res) =>{
     }).populate("messages");
 
     if(!conversation) return res.status(200).json([]);
-    console.log(conversation);
-
-    const messages = conversation.messages;
+      const messages = conversation.messages;
 
     res.status(200).json(messages);
 
